@@ -1,0 +1,31 @@
+# Documentation: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'server/**'
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: "Deploy Chartbrew API to Heroku"
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY }}
+          heroku_app_name: "charts-mainwaring-dev"
+          heroku_email: "joe@mainwaring.dev"
+          env:
+            HD_CB_API_HOST: ${{ secrets.CB_API_HOST }}
+            HD_CB_DB_CERT: ${{ secrets.CB_DB_CERT }}
+            HD_CB_DB_DIALECT: ${{ secrets.CB_DB_DIALECT }}
+            HD_CB_DB_HOST: ${{ secrets.CB_DB_HOST }}
+            HD_CB_DB_NAME: ${{ secrets.CB_DB_NAME }}
+            HD_CB_DB_PASSWORD: ${{ secrets.CB_DB_PASSWORD }}
+            HD_CB_DB_PORT: ${{ secrets.CB_DB_PORT }}
+            HD_CB_DB_USERNAME: ${{ secrets.CB_DB_USERNAME }}
+            HD_CB_SECRET: ${{ secrets.CB_SECRET }}
