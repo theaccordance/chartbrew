@@ -5,7 +5,7 @@ static_sites:
     name: charts-mainwaring-dev
     github:
       branch: master
-      repo: theaccordance/mainwaring_dev
+      repo: theaccordance/chartbrew
     routes:
       - path: /
     source_dir: /client/build
