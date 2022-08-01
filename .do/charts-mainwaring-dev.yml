@@ -9,3 +9,4 @@ static_sites:
     routes:
       - path: /
     source_dir: /client/build
+    build_command: cd client && npm run build
