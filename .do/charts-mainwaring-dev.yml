@@ -3,7 +3,7 @@ region: nyc
 static_sites:
   - environment_slug: html
     git:
-      branch: main
+      branch: master
       repo_clone_url: https://github.com/theaccordance/chartbrew.git
     name: charts-mainwaring-dev
     routes:
