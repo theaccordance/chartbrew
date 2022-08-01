@@ -1,5 +1,8 @@
 name: charts-mainwaring-dev
 region: nyc
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DEPLOYMENT_LIVE
 static_sites:
   - environment_slug: html
     name: charts-mainwaring-dev
@@ -15,5 +18,8 @@ static_sites:
       - key: REACT_APP_API_HOST
         scope: RUN_AND_BUILD_TIME
         value: https://charts-mainwaring-dev.herokuapp.com/
+      - key: NODE_ENV
+        scope: RUN_AND_BUILD_TIME
+        value: production
 
 
