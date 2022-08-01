@@ -8,7 +8,7 @@ static_sites:
       repo: theaccordance/chartbrew
     routes:
       - path: /
-    build_command: cd ../ && npm run build
-    source_dir: /client
-    output_dir: /build
+    build_command: npm run ci && cd client && npm run build
+    source_dir: /
+    output_dir: /client/build
 
