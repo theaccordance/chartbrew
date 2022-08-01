@@ -8,5 +8,5 @@ static_sites:
     name: charts-mainwaring-dev
     routes:
       - path: /
-    source_dir: /client/build
+    source_dir: ./client/build
     build_command: cd client && npm run build
