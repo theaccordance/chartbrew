@@ -13,7 +13,7 @@ static_sites:
     output_dir: /client/build
     envs:
       - key: REACT_APP_API_HOST
-        scope: BUILD_TIME
+        scope: RUN_AND_BUILD_TIME
         value: https://charts-mainwaring-dev.herokuapp.com/
 
 
