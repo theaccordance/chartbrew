@@ -1,0 +1,20 @@
+# Documentation: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: "Deploy Chartbrew UI to Digital Ocean"
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - uses: actions/checkout@v3
+      - uses: jjst/action-digitalocean-deploy-app@v2
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        spec: ./.do/charts-mainwaring-dev.yml
