@@ -1,0 +1,19 @@
+name: Sync Fork
+
+on:
+  schedule:
+    # Run daily at 01:00
+    - cron: '0 0 1 * * *'
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.4
+        with:
+          owner: chartbrew
+          base: master
+          head: master
+          pr_title: "Fork Sync from chartbrew/chartbrew"
+          pr_message: "This pull request syncs changes made to `chartbrew/chartbrew` with this fork of the project"
